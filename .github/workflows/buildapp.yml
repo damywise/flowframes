@@ -27,9 +27,14 @@ jobs:
     - name: setup-msbuild
       uses: microsoft/setup-msbuild@v1.1
 
-    # Restore the application to populate the obj folder with RuntimeIdentifiers
-    - name: Restore the application
-      run: msbuild Code\Flowframes.csproj /t:Restore
+    # Add nuget
+    - name: Setup NuGet.exe for use with actions
+      uses: NuGet/setup-nuget@v1.0.6
+
+    # Restore nuget
+    - name: Restore NuGet
+    - run: nuget restore Code\Flowframes.sln
+
 
     # Build App
     - name: Build app for release
