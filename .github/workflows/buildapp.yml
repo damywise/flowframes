@@ -33,4 +33,4 @@ jobs:
 
     # Build App
     - name: Build app for release
-      run: msbuild Code\Flowframes.csproj -t:rebuild -verbosity:diag -property:Configuration=Release
+      run: msbuild Code\Flowframes.sln -t:rebuild -verbosity:diag -property:Configuration=Release
