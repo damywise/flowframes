@@ -35,15 +35,9 @@ jobs:
       - name: Build app for release
         run: msbuild Code\Flowframes.sln -t:rebuild -verbosity:diag -property:Configuration=Release
 
-      - uses: actions/checkout@v2
-      - name: Push static files
-        run: |
-          cd ${{ github.workspace }}
-          ls
-
       # Upload the package
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
         with:
           name: Flowframes
-          path: D:/a/flowframes/Code/bin/x64/Release
+          path: ${{ github.workspace }}/Code/bin/x64/Release/
