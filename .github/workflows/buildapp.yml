@@ -29,8 +29,8 @@ jobs:
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
-      run: msbuild Code\Flowframes.sln /t:Restore
+      run: msbuild Code\Flowframes.csproj /t:Restore
 
     # Build App
     - name: Build app for release
-      run: msbuild Code\Flowframes.sln -t:rebuild -verbosity:diag -property:Configuration=Release
+      run: msbuild Code\Flowframes.csproj -t:rebuild -verbosity:diag -property:Configuration=Release
