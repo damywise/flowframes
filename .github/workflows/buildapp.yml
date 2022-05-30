@@ -40,4 +40,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Flowframes
-          path: Code/bin/x64/Release
+          path: D:/a/flowframes/Code/bin/x64/Release
