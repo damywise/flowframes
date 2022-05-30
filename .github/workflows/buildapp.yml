@@ -27,7 +27,12 @@ jobs:
     - name: setup-msbuild
       uses: microsoft/setup-msbuild@v1.1
 
+    # Restore the application to populate the obj folder with RuntimeIdentifiers
+    - name: Restore the application
+      run: msbuild Code\Flowframes.sln /t:Restore /p:Configuration=$env:Configuration
+      env:
+        Configuration: ${{ matrix.configuration }}
 
-    # Execute all unit tests in the solution
+    # Build App For Release
     - name: Build app for release
       run: msbuild Code\Flowframes.sln -t:rebuild -verbosity:diag -property:Configuration=Release
